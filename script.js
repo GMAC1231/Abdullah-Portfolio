@@ -1,9 +1,13 @@
 /* =========================================================
-   ABDULLAH MUHAMMAD PORTFOLIO — FIXED FULL SCRIPT
-   Navbar + Reveal Animation + PDF Popup + Git Bash Terminal
+   ABDULLAH MUHAMMAD PORTFOLIO — FIXED FULL SCRIPT.JS
+   Navbar + Reveal Animation + PDF Popup + Git Bash Terminal + AI Assistant
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+  /* =========================
+     BASIC ELEMENTS
+  ========================= */
+
   const menuBtn = document.getElementById("menuBtn");
   const navLinks = document.getElementById("navLinks");
   const year = document.getElementById("year");
@@ -58,175 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-
-   /* =========================
-   AI ASSISTANT CHATBOT
-========================= */
-
-const aiFloatingBtn = document.getElementById("aiFloatingBtn");
-const aiChatBox = document.getElementById("aiChatBox");
-const aiCloseBtn = document.getElementById("aiCloseBtn");
-const aiChatForm = document.getElementById("aiChatForm");
-const aiChatInput = document.getElementById("aiChatInput");
-const aiChatMessages = document.getElementById("aiChatMessages");
-
-const aiAnswers = {
-  help: `
-You can ask me about:
-• Abdullah
-• Skills
-• Projects
-• Certificates
-• SmartFixOman
-• Qwetrum
-• Contact
-• GitHub
-• CV
-`,
-
-  abdullah: `
-Abdullah Muhammad is a Software and Mobile Application Developer.
-He works with Flutter, React.js, Flask, Firebase, Python, and AI-assisted development tools.
-`,
-
-  skills: `
-Abdullah's main skills include:
-• Flutter and Dart
-• React.js and JavaScript
-• Python and Flask
-• Firebase and Firestore
-• REST APIs
-• GitHub
-• AI-assisted coding and debugging
-• LaTeX and Overleaf documentation
-`,
-
-  projects: `
-Main projects:
-• SmartFixOman — household service app with chat and bidding
-• E-Scooter Rental System
-• Food Ordering System
-• WeatherApp
-• MeditationApp
-• FlowerShop
-`,
-
-  smartfixoman: `
-SmartFixOman is a household service management mobile app.
-It connects customers with service providers using Flutter, Flask, Firebase, chat, bidding, and notification features.
-`,
-
-  certificates: `
-Abdullah has completed IBM Professional Certificates:
-• IBM iOS and Android Mobile App Developer
-• IBM AI Developer
-• IBM Full Stack Software Developer
-
-You can view the certificates from the Certifications section.
-`,
-
-  certs: `
-Abdullah has completed IBM Professional Certificates:
-• IBM iOS and Android Mobile App Developer
-• IBM AI Developer
-• IBM Full Stack Software Developer
-`,
-
-  qwetrum: `
-Abdullah is a Remote Intern at Qwetrum Technologies.
-You can visit the website here:
-https://www.qwetrumtechnologies.tech/
-`,
-
-  contact: `
-Contact Abdullah:
-Email: abdullahmshafiq098@gmail.com
-WhatsApp: +968 92287421
-GitHub: github.com/GMAC1231
-LinkedIn: Abdullah Muhammad
-`,
-
-  github: `
-GitHub:
-https://github.com/GMAC1231
-`,
-
-  cv: `
-You can download Abdullah's CV using the Download CV button on this portfolio.
-`,
-
-  ai: `
-This assistant is a portfolio AI helper. It can answer visitor questions about Abdullah's skills, projects, certificates, and contact details.
-`
-};
-
-function addAIMessage(message, sender = "bot") {
-  if (!aiChatMessages) return;
-
-  const messageElement = document.createElement("div");
-  messageElement.className = `ai-message ${sender}`;
-  messageElement.innerHTML = message.trim();
-
-  aiChatMessages.appendChild(messageElement);
-  aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
-}
-
-function getAIResponse(userMessage) {
-  const message = userMessage.toLowerCase().trim();
-
-  if (message.includes("help")) return aiAnswers.help;
-  if (message.includes("skill") || message.includes("technology")) return aiAnswers.skills;
-  if (message.includes("project") || message.includes("work")) return aiAnswers.projects;
-  if (message.includes("smartfix") || message.includes("smart fix")) return aiAnswers.smartfixoman;
-  if (message.includes("certificate") || message.includes("cert")) return aiAnswers.certificates;
-  if (message.includes("qwetrum") || message.includes("intern")) return aiAnswers.qwetrum;
-  if (message.includes("contact") || message.includes("email") || message.includes("whatsapp")) return aiAnswers.contact;
-  if (message.includes("github")) return aiAnswers.github;
-  if (message.includes("cv") || message.includes("resume")) return aiAnswers.cv;
-  if (message.includes("ai") || message.includes("assistant")) return aiAnswers.ai;
-  if (message.includes("abdullah") || message.includes("who are you")) return aiAnswers.abdullah;
-
-  return `
-I can answer questions about Abdullah's skills, projects, certificates, SmartFixOman, Qwetrum, CV, GitHub, and contact details.
-
-Type <strong>help</strong> to see examples.
-`;
-}
-
-if (aiFloatingBtn && aiChatBox) {
-  aiFloatingBtn.addEventListener("click", () => {
-    aiChatBox.classList.toggle("active");
-
-    if (aiChatBox.classList.contains("active") && aiChatInput) {
-      setTimeout(() => aiChatInput.focus(), 200);
-    }
-  });
-}
-
-if (aiCloseBtn && aiChatBox) {
-  aiCloseBtn.addEventListener("click", () => {
-    aiChatBox.classList.remove("active");
-  });
-}
-
-if (aiChatForm && aiChatInput) {
-  aiChatForm.addEventListener("submit", event => {
-    event.preventDefault();
-
-    const userMessage = aiChatInput.value.trim();
-
-    if (!userMessage) return;
-
-    addAIMessage(userMessage, "user");
-
-    aiChatInput.value = "";
-
-    setTimeout(() => {
-      const response = getAIResponse(userMessage);
-      addAIMessage(response, "bot");
-    }, 450);
-  });
-}
   /* =========================
      REVEAL ANIMATION
   ========================= */
@@ -290,7 +125,7 @@ if (aiChatForm && aiChatInput) {
   updateActiveNav();
 
   /* =========================
-     HEADER SHADOW
+     HEADER SHADOW ON SCROLL
   ========================= */
 
   function updateHeaderShadow() {
@@ -317,7 +152,7 @@ if (aiChatForm && aiChatInput) {
   }
 
   /* =========================
-     TERMINAL
+     GIT BASH STYLE TERMINAL
   ========================= */
 
   const terminalOutput = document.getElementById("terminalOutput");
@@ -510,12 +345,170 @@ Try: about, skills, projects, certs, qwetrum, github, linkedin, cv
       terminalInput.focus();
     });
   }
+
+  /* =========================
+     AI ASSISTANT CHATBOT
+  ========================= */
+
+  const aiFloatingBtn = document.getElementById("aiFloatingBtn");
+  const aiChatBox = document.getElementById("aiChatBox");
+  const aiCloseBtn = document.getElementById("aiCloseBtn");
+  const aiChatForm = document.getElementById("aiChatForm");
+  const aiChatInput = document.getElementById("aiChatInput");
+  const aiChatMessages = document.getElementById("aiChatMessages");
+
+  const aiAnswers = {
+    help: `
+You can ask me about:<br>
+• Abdullah<br>
+• Skills<br>
+• Projects<br>
+• Certificates<br>
+• SmartFixOman<br>
+• Qwetrum<br>
+• Contact<br>
+• GitHub<br>
+• CV
+`,
+
+    abdullah: `
+Abdullah Muhammad is a Software and Mobile Application Developer.<br>
+He works with Flutter, React.js, Flask, Firebase, Python, and AI-assisted development tools.
+`,
+
+    skills: `
+Abdullah's main skills include:<br>
+• Flutter and Dart<br>
+• React.js and JavaScript<br>
+• Python and Flask<br>
+• Firebase and Firestore<br>
+• REST APIs<br>
+• GitHub<br>
+• AI-assisted coding and debugging<br>
+• LaTeX and Overleaf documentation
+`,
+
+    projects: `
+Main projects:<br>
+• SmartFixOman — household service app with chat and bidding<br>
+• E-Scooter Rental System<br>
+• Food Ordering System<br>
+• WeatherApp<br>
+• MeditationApp<br>
+• FlowerShop
+`,
+
+    smartfixoman: `
+SmartFixOman is a household service management mobile app.<br>
+It connects customers with service providers using Flutter, Flask, Firebase, chat, bidding, and notification features.
+`,
+
+    certificates: `
+Abdullah has completed IBM Professional Certificates:<br>
+• IBM iOS and Android Mobile App Developer<br>
+• IBM AI Developer<br>
+• IBM Full Stack Software Developer<br><br>
+You can view the certificates from the Certifications section.
+`,
+
+    qwetrum: `
+Abdullah is a Remote Intern at Qwetrum Technologies.<br>
+Website: https://www.qwetrumtechnologies.tech/
+`,
+
+    contact: `
+Contact Abdullah:<br>
+Email: abdullahmshafiq098@gmail.com<br>
+WhatsApp: +968 92287421<br>
+GitHub: github.com/GMAC1231<br>
+LinkedIn: Abdullah Muhammad
+`,
+
+    github: `
+GitHub:<br>
+https://github.com/GMAC1231
+`,
+
+    cv: `
+You can download Abdullah's CV using the Download CV button on this portfolio.
+`,
+
+    ai: `
+This assistant is a portfolio AI helper. It can answer visitor questions about Abdullah's skills, projects, certificates, and contact details.
+`
+  };
+
+  function addAIMessage(message, sender = "bot") {
+    if (!aiChatMessages) return;
+
+    const messageElement = document.createElement("div");
+    messageElement.className = `ai-message ${sender}`;
+    messageElement.innerHTML = message.trim();
+
+    aiChatMessages.appendChild(messageElement);
+    aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+  }
+
+  function getAIResponse(userMessage) {
+    const message = userMessage.toLowerCase().trim();
+
+    if (message.includes("help")) return aiAnswers.help;
+    if (message.includes("skill") || message.includes("technology")) return aiAnswers.skills;
+    if (message.includes("project") || message.includes("work")) return aiAnswers.projects;
+    if (message.includes("smartfix") || message.includes("smart fix")) return aiAnswers.smartfixoman;
+    if (message.includes("certificate") || message.includes("cert")) return aiAnswers.certificates;
+    if (message.includes("qwetrum") || message.includes("intern")) return aiAnswers.qwetrum;
+    if (message.includes("contact") || message.includes("email") || message.includes("whatsapp")) return aiAnswers.contact;
+    if (message.includes("github")) return aiAnswers.github;
+    if (message.includes("cv") || message.includes("resume")) return aiAnswers.cv;
+    if (message.includes("ai") || message.includes("assistant")) return aiAnswers.ai;
+    if (message.includes("abdullah") || message.includes("who are you")) return aiAnswers.abdullah;
+
+    return `
+I can answer questions about Abdullah's skills, projects, certificates, SmartFixOman, Qwetrum, CV, GitHub, and contact details.<br><br>
+Type <strong>help</strong> to see examples.
+`;
+  }
+
+  if (aiFloatingBtn && aiChatBox) {
+    aiFloatingBtn.addEventListener("click", () => {
+      aiChatBox.classList.toggle("active");
+
+      if (aiChatBox.classList.contains("active") && aiChatInput) {
+        setTimeout(() => aiChatInput.focus(), 200);
+      }
+    });
+  }
+
+  if (aiCloseBtn && aiChatBox) {
+    aiCloseBtn.addEventListener("click", () => {
+      aiChatBox.classList.remove("active");
+    });
+  }
+
+  if (aiChatForm && aiChatInput) {
+    aiChatForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      const userMessage = aiChatInput.value.trim();
+
+      if (!userMessage) return;
+
+      addAIMessage(userMessage, "user");
+      aiChatInput.value = "";
+
+      setTimeout(() => {
+        const response = getAIResponse(userMessage);
+        addAIMessage(response, "bot");
+      }, 400);
+    });
+  }
 });
 
-/* =========================
+/* =========================================================
    GLOBAL PDF POPUP FUNCTIONS
-   These must stay outside DOMContentLoaded because HTML onclick uses them.
-========================= */
+   These stay outside DOMContentLoaded because HTML onclick uses them.
+========================================================= */
 
 function openPDF(pdfFile, title) {
   const modal = document.getElementById("pdfModal");
@@ -549,9 +542,18 @@ function closePDF() {
   document.body.style.overflow = "";
 }
 
+/* =========================
+   CLOSE PDF WITH ESC OR OUTSIDE CLICK
+========================= */
+
 document.addEventListener("keydown", event => {
   if (event.key === "Escape") {
     closePDF();
+
+    const aiChatBox = document.getElementById("aiChatBox");
+    if (aiChatBox) {
+      aiChatBox.classList.remove("active");
+    }
   }
 });
 
