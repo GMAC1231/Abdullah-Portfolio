@@ -511,6 +511,41 @@
   </main>
 
   <!-- =========================
+     AI ASSISTANT WIDGET
+========================== -->
+<div class="ai-assistant" id="aiAssistant">
+  <div class="ai-chat-box" id="aiChatBox">
+    <div class="ai-chat-header">
+      <div>
+        <h3>AI Assistant</h3>
+        <p>Ask about Abdullah’s skills, projects, certificates, or contact.</p>
+      </div>
+      <button class="ai-close-btn" id="aiCloseBtn">✕</button>
+    </div>
+
+    <div class="ai-chat-messages" id="aiChatMessages">
+      <div class="ai-message bot">
+        👋 Hi! I’m Abdullah’s AI assistant. Type <strong>help</strong> to see what I can answer.
+      </div>
+    </div>
+
+    <form class="ai-chat-form" id="aiChatForm">
+      <input
+        type="text"
+        id="aiChatInput"
+        placeholder="Ask me something..."
+        autocomplete="off"
+      />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <button class="ai-floating-btn" id="aiFloatingBtn">
+    🤖 AI Assistant
+  </button>
+</div>
+
+  <!-- =========================
        FLOATING WHATSAPP
   ========================== -->
   <a
