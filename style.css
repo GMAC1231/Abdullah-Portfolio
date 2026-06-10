@@ -1,15 +1,12 @@
 /* =========================================================
-   ABDULLAH MUHAMMAD PORTFOLIO — FULL PREMIUM CSS
-   Hero Layout + Glassmorphism + PDF Popup + Terminal
+   ABDULLAH MUHAMMAD PORTFOLIO — FIXED FULL CSS
+   Dark Premium UI + Certificate PDF Popup + Git Bash Terminal
 ========================================================= */
 
 :root {
   --bg: #050b16;
   --bg-2: #071526;
   --bg-3: #0b2038;
-
-  --card: rgba(255, 255, 255, 0.075);
-  --card-strong: rgba(255, 255, 255, 0.13);
 
   --text: #f8fbff;
   --muted: #b8c5d9;
@@ -25,11 +22,9 @@
 
   --shadow: 0 24px 90px rgba(0, 0, 0, 0.42);
   --glow-blue: 0 0 35px rgba(50, 217, 255, 0.32);
-  --glow-purple: 0 0 35px rgba(139, 92, 246, 0.32);
 
   --radius-lg: 34px;
   --radius-md: 24px;
-  --radius-sm: 16px;
 }
 
 /* =========================
@@ -42,6 +37,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 110px;
 }
 
 body {
@@ -63,7 +59,8 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
-button {
+button,
+input {
   font-family: inherit;
 }
 
@@ -109,11 +106,11 @@ button {
 }
 
 @keyframes backgroundShift {
-  0% {
+  from {
     filter: hue-rotate(0deg) brightness(1);
   }
 
-  100% {
+  to {
     filter: hue-rotate(14deg) brightness(1.08);
   }
 }
@@ -143,20 +140,22 @@ button {
 }
 
 .site-header.scrolled {
-  background: rgba(5, 11, 22, 0.92);
+  background: rgba(5, 11, 22, 0.94);
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.36);
 }
 
 .navbar {
-  width: min(1140px, calc(100% - 36px));
-  height: 78px;
+  width: min(1240px, calc(100% - 36px));
+  min-height: 78px;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 18px;
 }
 
 .brand {
+  min-width: max-content;
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -187,15 +186,18 @@ button {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: flex-end;
+  gap: clamp(10px, 1.35vw, 20px);
+  flex-wrap: nowrap;
 }
 
 .nav-links a {
   position: relative;
   color: var(--muted);
   text-decoration: none;
-  font-size: 0.92rem;
-  font-weight: 750;
+  font-size: clamp(0.78rem, 0.9vw, 0.92rem);
+  font-weight: 800;
+  white-space: nowrap;
   transition: 0.25s ease;
 }
 
@@ -240,7 +242,7 @@ button {
 }
 
 /* =========================
-   ATTRACTIVE ANIMATED BANNER
+   TOP BANNER
 ========================= */
 
 .top-banner {
@@ -266,25 +268,13 @@ button {
   animation: bannerShine 3.8s ease-in-out infinite;
 }
 
-.top-banner::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 38px 38px;
-  opacity: 0.35;
-  pointer-events: none;
-}
-
 .banner-track {
   position: relative;
   z-index: 2;
   display: inline-flex;
   gap: 42px;
   padding: 14px 0;
-  animation: bannerMove 22s linear infinite;
+  animation: bannerMove 24s linear infinite;
 }
 
 .banner-track span {
@@ -387,7 +377,7 @@ h3 {
 }
 
 /* =========================
-   HERO — CARD LEFT, TEXT RIGHT
+   HERO
 ========================= */
 
 .hero {
@@ -397,15 +387,6 @@ h3 {
   grid-template-columns: 0.82fr 1.18fr;
   align-items: center;
   gap: 54px;
-}
-
-.hero-content {
-  order: 2;
-}
-
-.hero-card {
-  order: 1;
-  justify-self: start;
 }
 
 .hero::before,
@@ -543,10 +524,6 @@ h3 {
   box-shadow: 0 15px 40px rgba(50, 217, 255, 0.25);
 }
 
-.btn.primary:hover {
-  box-shadow: 0 22px 52px rgba(50, 217, 255, 0.36);
-}
-
 .btn.secondary {
   color: var(--text);
   border: 1px solid var(--line);
@@ -565,42 +542,7 @@ h3 {
 }
 
 /* =========================
-   FLOATING WHATSAPP
-========================= */
-
-.floating-whatsapp {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  z-index: 999;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 13px 18px;
-  border-radius: 999px;
-  color: #03140b;
-  background: linear-gradient(135deg, var(--green), #b7ffd6);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.42);
-  text-decoration: none;
-  font-weight: 950;
-  animation: whatsappPulse 2.4s ease-in-out infinite;
-}
-
-@keyframes whatsappPulse {
-  0%,
-  100% {
-    transform: translateY(0);
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.42);
-  }
-
-  50% {
-    transform: translateY(-7px);
-    box-shadow: 0 22px 58px rgba(37, 211, 102, 0.35);
-  }
-}
-
-/* =========================
-   GLASS CARDS
+   CARDS
 ========================= */
 
 .hero-card,
@@ -626,15 +568,12 @@ h3 {
 .skill-card:hover,
 .project-card:hover,
 .project-feature:hover,
-.timeline-item:hover {
+.timeline-item:hover,
+.hero-card:hover {
   transform: translateY(-9px);
   border-color: rgba(50, 217, 255, 0.48);
   box-shadow: 0 30px 95px rgba(0, 0, 0, 0.46), var(--glow-blue);
 }
-
-/* =========================
-   HERO CARD WITH BIG IMAGE
-========================= */
 
 .hero-card {
   position: relative;
@@ -643,14 +582,7 @@ h3 {
   max-width: 440px;
   padding: 32px;
   border-radius: var(--radius-lg);
-  transform: none;
   text-align: left;
-}
-
-.hero-card:hover {
-  transform: translateY(-9px);
-  border-color: rgba(50, 217, 255, 0.48);
-  box-shadow: 0 30px 95px rgba(0, 0, 0, 0.46), var(--glow-blue);
 }
 
 .hero-card::before {
@@ -663,17 +595,6 @@ h3 {
     radial-gradient(circle at 90% 5%, rgba(255, 209, 102, 0.22), transparent 30%),
     linear-gradient(135deg, rgba(50, 217, 255, 0.25), transparent 45%, rgba(255, 209, 102, 0.22));
   opacity: 0.9;
-}
-
-.hero-card::after {
-  content: "";
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  right: -70px;
-  top: -70px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 209, 102, 0.28), transparent 66%);
 }
 
 .hero-card h2 {
@@ -800,7 +721,7 @@ h3 {
 }
 
 /* =========================
-   SKILLS & PROJECTS
+   SKILLS / PROJECTS
 ========================= */
 
 .skills-grid,
@@ -816,23 +737,6 @@ h3 {
   overflow: hidden;
   padding: 25px;
   border-radius: 26px;
-}
-
-.skill-card::before,
-.project-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 10%, rgba(50, 217, 255, 0.16), transparent 34%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent);
-  opacity: 0;
-  transition: 0.35s ease;
-}
-
-.skill-card:hover::before,
-.project-card:hover::before {
-  opacity: 1;
 }
 
 .skill-card span {
@@ -873,17 +777,6 @@ h3 {
     rgba(255, 255, 255, 0.075);
 }
 
-.project-feature::after {
-  content: "";
-  position: absolute;
-  width: 210px;
-  height: 210px;
-  right: -80px;
-  bottom: -85px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(50, 217, 255, 0.22), transparent 68%);
-}
-
 .tag {
   margin: 0 0 11px;
   color: var(--accent) !important;
@@ -919,7 +812,7 @@ h3 {
 }
 
 /* =========================
-   TIMELINE / CERTIFICATIONS
+   TIMELINE / CERTIFICATES
 ========================= */
 
 .timeline {
@@ -946,17 +839,6 @@ h3 {
   box-shadow: 0 0 22px rgba(50, 217, 255, 0.48);
 }
 
-.timeline-item::after {
-  content: "";
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  right: -48px;
-  top: -48px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.18), transparent 70%);
-}
-
 .timeline-item span {
   color: var(--gold);
   font-weight: 950;
@@ -966,10 +848,6 @@ h3 {
 .timeline-item h3 {
   margin-top: 8px;
 }
-
-/* =========================
-   CERTIFICATE BUTTONS
-========================= */
 
 .cert-btn {
   display: inline-flex;
@@ -999,7 +877,7 @@ h3 {
 }
 
 /* =========================
-   GIT BASH STYLE TERMINAL
+   TERMINAL WITH SCREEN
 ========================= */
 
 .terminal-section {
@@ -1007,34 +885,34 @@ h3 {
 }
 
 .terminal-window {
-  overflow: hidden;
-  max-width: 920px;
+  max-width: 960px;
   margin: 0 auto;
-  border-radius: 26px;
-  border: 1px solid rgba(50, 217, 255, 0.28);
-  background: rgba(2, 8, 23, 0.92);
+  border-radius: 28px;
+  border: 1px solid rgba(50, 217, 255, 0.35);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.96));
   box-shadow:
-    0 30px 90px rgba(0, 0, 0, 0.55),
-    0 0 45px rgba(50, 217, 255, 0.18);
-  backdrop-filter: blur(22px);
+    0 35px 100px rgba(0, 0, 0, 0.62),
+    0 0 48px rgba(50, 217, 255, 0.18);
+  overflow: hidden;
 }
 
-.terminal-topbar {
-  min-height: 50px;
+.terminal-titlebar {
+  min-height: 52px;
   padding: 0 18px;
-  background: linear-gradient(135deg, #111827, #020617);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+  background:
+    linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(2, 6, 23, 0.98));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
 }
 
-.terminal-topbar p {
+.terminal-titlebar p {
   margin: 0;
   color: #cbd5e1;
   font-size: 0.84rem;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.04em;
 }
 
@@ -1063,18 +941,53 @@ h3 {
   background: #28c840;
 }
 
+.terminal-screen {
+  position: relative;
+  margin: 18px;
+  overflow: hidden;
+  min-height: 430px;
+  border-radius: 20px;
+  border: 1px solid rgba(34, 197, 94, 0.26);
+  background:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    radial-gradient(circle at 20% 15%, rgba(50, 217, 255, 0.12), transparent 32%),
+    radial-gradient(circle at 85% 80%, rgba(0, 255, 163, 0.09), transparent 30%),
+    #020617;
+  background-size: 100% 26px, auto, auto, auto;
+  box-shadow:
+    inset 0 0 45px rgba(34, 197, 94, 0.08),
+    inset 0 0 90px rgba(50, 217, 255, 0.06);
+}
+
+.terminal-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent, rgba(255,255,255,0.035), transparent);
+  animation: terminalScan 4s linear infinite;
+}
+
+@keyframes terminalScan {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
 .terminal-output {
   height: 360px;
   overflow-y: auto;
-  padding: 22px;
+  padding: 22px 22px 10px;
   color: #d1fae5;
   font-family: Consolas, "Courier New", monospace;
   font-size: 0.95rem;
-  line-height: 1.6;
-  background:
-    radial-gradient(circle at 12% 12%, rgba(50, 217, 255, 0.08), transparent 28%),
-    radial-gradient(circle at 88% 88%, rgba(0, 255, 163, 0.06), transparent 26%),
-    #020617;
+  line-height: 1.55;
+  white-space: pre-wrap;
 }
 
 .terminal-line {
@@ -1108,9 +1021,8 @@ h3 {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 22px;
-  background: #020617;
-  border-top: 1px solid rgba(255, 255, 255, 0.11);
+  padding: 12px 22px 20px;
+  background: transparent;
 }
 
 .terminal-prompt {
@@ -1122,10 +1034,12 @@ h3 {
 
 #terminalInput {
   width: 100%;
+  min-width: 0;
   border: none;
   outline: none;
   background: transparent;
   color: #ffffff;
+  caret-color: var(--accent-3);
   font-family: Consolas, "Courier New", monospace;
   font-size: 1rem;
 }
@@ -1143,7 +1057,7 @@ h3 {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: rgba(2, 8, 23, 0.86);
+  background: rgba(2, 8, 23, 0.88);
   backdrop-filter: blur(8px);
   padding: 26px;
 }
@@ -1225,7 +1139,7 @@ h3 {
 }
 
 /* =========================
-   CONTACT
+   CONTACT / FOOTER
 ========================= */
 
 .contact-card {
@@ -1240,23 +1154,41 @@ h3 {
     rgba(255, 255, 255, 0.10);
 }
 
-.contact-card::before {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: inherit;
-  pointer-events: none;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
 .contact-actions {
   justify-content: center;
   margin-top: 30px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+.floating-whatsapp {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 18px;
+  border-radius: 999px;
+  color: #03140b;
+  background: linear-gradient(135deg, var(--green), #b7ffd6);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.42);
+  text-decoration: none;
+  font-weight: 950;
+  animation: whatsappPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes whatsappPulse {
+  0%,
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.42);
+  }
+
+  50% {
+    transform: translateY(-7px);
+    box-shadow: 0 22px 58px rgba(37, 211, 102, 0.35);
+  }
+}
 
 .footer {
   text-align: center;
@@ -1324,20 +1256,10 @@ h3 {
 }
 
 /* =========================
-   TABLET RESPONSIVE
+   RESPONSIVE
 ========================= */
 
-@media (max-width: 1000px) {
-  .nav-links {
-    gap: 14px;
-  }
-
-  .nav-links a {
-    font-size: 0.86rem;
-  }
-}
-
-@media (max-width: 900px) {
+@media (max-width: 1060px) {
   .menu-btn {
     display: inline-grid;
     place-items: center;
@@ -1361,7 +1283,7 @@ h3 {
     gap: 10px;
     padding: 18px;
     border-radius: 24px;
-    background: rgba(5, 11, 22, 0.97);
+    background: rgba(5, 11, 22, 0.98);
     border: 1px solid var(--line);
     box-shadow: var(--shadow);
   }
@@ -1386,6 +1308,7 @@ h3 {
   .nav-links a {
     padding: 11px 12px;
     border-radius: 14px;
+    font-size: 0.95rem;
   }
 
   .nav-links a:hover,
@@ -1408,12 +1331,7 @@ h3 {
     gap: 38px;
   }
 
-  .hero-content {
-    order: 1;
-  }
-
   .hero-card {
-    order: 2;
     justify-self: stretch;
     max-width: 100%;
   }
@@ -1422,15 +1340,7 @@ h3 {
   .project-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .banner-track {
-    animation-duration: 18s;
-  }
 }
-
-/* =========================
-   MOBILE RESPONSIVE
-========================= */
 
 @media (max-width: 620px) {
   .navbar,
@@ -1439,7 +1349,7 @@ h3 {
   }
 
   .navbar {
-    height: 72px;
+    min-height: 72px;
   }
 
   .brand {
@@ -1511,14 +1421,10 @@ h3 {
     height: 150px;
   }
 
-  .top-banner {
-    font-size: 0.78rem;
-  }
-
   .banner-track {
     gap: 24px;
     padding: 12px 0;
-    animation-duration: 14s;
+    animation-duration: 16s;
   }
 
   .floating-whatsapp {
@@ -1526,6 +1432,40 @@ h3 {
     bottom: 14px;
     padding: 11px 15px;
     font-size: 0.88rem;
+  }
+
+  .terminal-window {
+    border-radius: 20px;
+  }
+
+  .terminal-screen {
+    min-height: 390px;
+    margin: 12px;
+    border-radius: 16px;
+  }
+
+  .terminal-output {
+    height: 305px;
+    padding: 18px 16px 8px;
+    font-size: 0.82rem;
+  }
+
+  .terminal-form {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 16px 16px;
+  }
+
+  .terminal-prompt,
+  #terminalInput {
+    font-size: 0.86rem;
+  }
+
+  .terminal-titlebar {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 14px 16px;
   }
 
   .pdf-modal {
@@ -1548,28 +1488,5 @@ h3 {
 
   .pdf-modal-footer .btn {
     width: 100%;
-  }
-
-  .terminal-output {
-    height: 330px;
-    padding: 18px;
-    font-size: 0.82rem;
-  }
-
-  .terminal-form {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .terminal-prompt,
-  #terminalInput {
-    font-size: 0.86rem;
-  }
-
-  .terminal-topbar {
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 14px 16px;
   }
 }
