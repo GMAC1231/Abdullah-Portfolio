@@ -13,9 +13,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   />
 
@@ -32,19 +31,21 @@
     <nav class="navbar">
       <a class="brand" href="#top">
         <img src="AD_logo.png" alt="AD logo" class="brand-logo" />
-        Abdullah Muhammad
+        <span>Abdullah Muhammad</span>
       </a>
 
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+        ☰
+      </button>
 
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="#certifications">Certifications</a>
+        <a href="#certifications">Certificates</a>
         <a href="#terminal">Terminal</a>
         <a href="https://www.qwetrumtechnologies.tech/" target="_blank" rel="noopener">Qwetrum</a>
-        <a href="Abdullah_cv.pdf" download>Download CV</a>
+        <a href="Abdullah_cv.pdf" download>CV</a>
         <a href="#contact" class="nav-cta">Contact</a>
       </div>
     </nav>
@@ -64,7 +65,6 @@
       <span>💻 GitHub Projects</span>
       <span>🧠 AI Developer</span>
       <span>🎓 IBM Certified</span>
-
       <span>🚀 Flutter Developer</span>
       <span>🤖 AI-Assisted Developer</span>
       <span>🔥 Flask Backend</span>
@@ -82,7 +82,39 @@
          HERO SECTION
     ========================== -->
     <section class="hero section-pad">
-      <div class="hero-content reveal">
+      <aside class="hero-card reveal">
+        <div class="profile-photo-frame">
+          <img
+            src="Abdullah_photo.png"
+            alt="Abdullah Muhammad profile photo"
+            class="profile-photo"
+          />
+        </div>
+
+        <h2>Software & Mobile Application Developer</h2>
+        <p>Flutter · Flask · Firebase · React.js · AI Tools</p>
+
+        <div class="stat-grid">
+          <div>
+            <strong>39</strong>
+            <span>IBM Courses</span>
+          </div>
+          <div>
+            <strong>3</strong>
+            <span>IBM Certificates</span>
+          </div>
+          <div>
+            <strong>6+</strong>
+            <span>Key Projects</span>
+          </div>
+          <div>
+            <strong>2026</strong>
+            <span>Remote Intern</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="hero-content reveal delay-1">
         <p class="eyebrow">
           IBM Certified · Mobile App Developer · AI Developer · Full Stack Developer
         </p>
@@ -113,60 +145,17 @@
         <div class="hero-meta">
           <a href="mailto:abdullahmshafiq098@gmail.com">abdullahmshafiq098@gmail.com</a>
           <span>•</span>
-          <a
-            href="https://api.whatsapp.com/send?phone=96892287421"
-            target="_blank"
-            rel="noopener"
-          >
+          <a href="https://api.whatsapp.com/send?phone=96892287421" target="_blank" rel="noopener">
             WhatsApp: +968 92287421
           </a>
           <span>•</span>
           <a href="https://github.com/GMAC1231" target="_blank" rel="noopener">GitHub</a>
           <span>•</span>
-          <a
-            href="https://www.linkedin.com/in/abdullah-muhammad-30948623b/"
-            target="_blank"
-            rel="noopener"
-          >
+          <a href="https://www.linkedin.com/in/abdullah-muhammad-30948623b/" target="_blank" rel="noopener">
             LinkedIn
           </a>
         </div>
       </div>
-
-      <aside class="hero-card reveal delay-1">
-        <div class="profile-photo-frame">
-          <img
-            src="Abdullah_photo.png"
-            alt="Abdullah Muhammad profile photo"
-            class="profile-photo"
-          />
-        </div>
-
-        <h2>Software & Mobile Application Developer</h2>
-        <p>Flutter · Flask · Firebase · React.js · AI Tools</p>
-
-        <div class="stat-grid">
-          <div>
-            <strong>39</strong>
-            <span>IBM Courses</span>
-          </div>
-
-          <div>
-            <strong>3</strong>
-            <span>IBM Certificates</span>
-          </div>
-
-          <div>
-            <strong>6+</strong>
-            <span>Key Projects</span>
-          </div>
-
-          <div>
-            <strong>2026</strong>
-            <span>Remote Intern</span>
-          </div>
-        </div>
-      </aside>
     </section>
 
     <!-- =========================
@@ -371,10 +360,7 @@
             UI/UX, notifications, databases, and capstone development.
           </p>
 
-          <button
-            class="cert-btn"
-            onclick="openPDF('1.pdf', 'IBM iOS & Android Mobile App Developer')"
-          >
+          <button class="cert-btn" type="button" onclick="openPDF('1.pdf', 'IBM iOS & Android Mobile App Developer')">
             View Certificate
           </button>
         </div>
@@ -387,10 +373,7 @@
             Python, Flask, and AI-powered applications.
           </p>
 
-          <button
-            class="cert-btn"
-            onclick="openPDF('2.pdf', 'IBM AI Developer Professional Certificate')"
-          >
+          <button class="cert-btn" type="button" onclick="openPDF('2.pdf', 'IBM AI Developer Professional Certificate')">
             View Certificate
           </button>
         </div>
@@ -403,10 +386,7 @@
             Docker, Kubernetes, microservices, and cloud security.
           </p>
 
-          <button
-            class="cert-btn"
-            onclick="openPDF('3.pdf', 'IBM Full Stack Software Developer')"
-          >
+          <button class="cert-btn" type="button" onclick="openPDF('3.pdf', 'IBM Full Stack Software Developer')">
             View Certificate
           </button>
         </div>
@@ -441,8 +421,8 @@
       </div>
 
       <div class="terminal-window reveal">
-        <div class="terminal-topbar">
-          <div class="terminal-dots">
+        <div class="terminal-titlebar">
+          <div class="terminal-dots" aria-hidden="true">
             <span class="dot red"></span>
             <span class="dot yellow"></span>
             <span class="dot green"></span>
@@ -451,18 +431,23 @@
           <p>git-bash — abdullah-portfolio</p>
         </div>
 
-        <div class="terminal-output" id="terminalOutput"></div>
+        <div class="terminal-screen">
+          <div class="terminal-output" id="terminalOutput">
+            <noscript>Please enable JavaScript to use the terminal.</noscript>
+          </div>
 
-        <form class="terminal-form" id="terminalForm">
-          <span class="terminal-prompt">guest@abdullah:~$</span>
+          <form class="terminal-form" id="terminalForm">
+            <label class="terminal-prompt" for="terminalInput">guest@abdullah:~$</label>
 
-          <input
-            type="text"
-            id="terminalInput"
-            autocomplete="off"
-            placeholder="type help and press Enter"
-          />
-        </form>
+            <input
+              type="text"
+              id="terminalInput"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="type help and press Enter"
+            />
+          </form>
+        </div>
       </div>
     </section>
 
@@ -550,18 +535,20 @@
   <!-- =========================
        PDF POPUP MODAL
   ========================== -->
-  <div class="pdf-modal" id="pdfModal">
-    <div class="pdf-modal-box">
+  <div class="pdf-modal" id="pdfModal" aria-hidden="true">
+    <div class="pdf-modal-box" role="dialog" aria-modal="true" aria-labelledby="pdfTitle">
       <div class="pdf-modal-header">
         <h3 id="pdfTitle">Certificate Preview</h3>
-        <button class="pdf-close-btn" onclick="closePDF()">✕</button>
+        <button class="pdf-close-btn" type="button" onclick="closePDF()" aria-label="Close PDF preview">
+          ✕
+        </button>
       </div>
 
-      <iframe id="pdfViewer" src=""></iframe>
+      <iframe id="pdfViewer" title="PDF Preview" src=""></iframe>
 
       <div class="pdf-modal-footer">
         <a id="pdfDownload" href="#" download class="btn primary">Download PDF</a>
-        <button class="btn secondary" onclick="closePDF()">Close</button>
+        <button class="btn secondary" type="button" onclick="closePDF()">Close</button>
       </div>
     </div>
   </div>
