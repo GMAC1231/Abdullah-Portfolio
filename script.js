@@ -164,6 +164,8 @@ document.addEventListener("DOMContentLoaded", () => {
     linkedin: "https://www.linkedin.com/in/abdullah-muhammad-30948623b/",
     whatsapp: "https://api.whatsapp.com/send?phone=96892287421",
     qwetrum: "https://www.qwetrumtechnologies.tech/",
+    capstone: "https://gmac1231.github.io/Capstone-Complete-E-Commerce-Website/",
+    repo: "https://github.com/GMAC1231/Capstone-Complete-E-Commerce-Website",
     cv: "Abdullah_cv.pdf"
   };
 
@@ -181,6 +183,13 @@ Available commands:
   linkedin   Open LinkedIn profile
   whatsapp   Open WhatsApp chat
   cv         Open CV PDF
+  capstone   Open Qwetrum internship capstone project
+  repo       Open capstone GitHub repository
+  cat        Summon a terminal cat
+  404        Show a fun fake 404 error
+  matrix     Start matrix-style terminal effect
+  snake      Start mini snake text game
+  w/a/s/d    Move snake after starting the game
   date       Show current date and time
   whoami     Show visitor identity
   clear      Clear terminal
@@ -206,12 +215,16 @@ Technical Skills:
 
     projects: `
 Key Projects:
-  1. SmartFixOman — Household service app with chat and bidding
-  2. E-Scooter Rental System — SQU campus rental platform
-  3. Food Ordering System — Flask backend web app
-  4. WeatherApp — Android mini project
-  5. MeditationApp — React.js / Expo capstone
-  6. FlowerShop — React.js frontend project
+  1. Qwetrum Internship Capstone — Complete E-Commerce Website
+  2. SmartFixOman — Household service app with chat and bidding
+  3. E-Scooter Rental System — SQU campus rental platform
+  4. Food Ordering System — Flask backend web app
+  5. WeatherApp — Android mini project
+  6. MeditationApp — React.js / Expo capstone
+  7. FlowerShop — React.js frontend project
+
+Type "capstone" to open the internship project.
+Type "repo" to open the GitHub repository.
 `,
 
     certs: `
@@ -274,6 +287,187 @@ You are viewing Abdullah Muhammad's interactive developer portfolio.
     window.open(url, "_blank", "noopener,noreferrer");
   }
 
+  let snakeGame = null;
+
+  function printCat() {
+    printTerminalBlock(
+      `
+ /\_/\\
+( o.o )
+ > ^ <
+Terminal cat summoned successfully 🐱
+
+Meow! Abdullah's portfolio is now 37% more awesome.
+      `,
+      "success"
+    );
+  }
+
+  function print404() {
+    printTerminalBlock(
+      `
+ERROR 404: Boring portfolio not found.
+
+Searching...
+[████████████████████] 100%
+
+Result:
+Awesome developer portfolio detected 🚀
+Qwetrum internship project found ✅
+Cat mode available ✅
+Snake game available ✅
+      `,
+      "error"
+    );
+  }
+
+  function printMatrix() {
+    const lines = [
+      "01001000 01100101 01101100 01101100 01101111",
+      "10101010 00110011 11110000 00001111 10100101",
+      "git commit -m 'portfolio upgraded'",
+      "npm run awesome",
+      "QWETRUM_INTERNSHIP_COMPLETED=true",
+      "CAPSTONE_PROJECT_DEPLOYED=true",
+      "ACCESS GRANTED ✅"
+    ];
+
+    let count = 0;
+
+    const matrixInterval = setInterval(() => {
+      printTerminalLine(lines[Math.floor(Math.random() * lines.length)], "success");
+      count++;
+
+      if (count >= 12) {
+        clearInterval(matrixInterval);
+        printTerminalBlock("Matrix mode complete. Welcome, developer 😎", "success");
+      }
+    }, 160);
+  }
+
+  function renderSnakeGame() {
+    if (!snakeGame) return;
+
+    const size = snakeGame.size;
+    let board = "";
+
+    for (let y = 0; y < size; y++) {
+      for (let x = 0; x < size; x++) {
+        const isSnake = snakeGame.snake.some(part => part.x === x && part.y === y);
+        const isFood = snakeGame.food.x === x && snakeGame.food.y === y;
+
+        if (isSnake) {
+          board += "■ ";
+        } else if (isFood) {
+          board += "● ";
+        } else {
+          board += ". ";
+        }
+      }
+
+      board += "\n";
+    }
+
+    printTerminalBlock(
+      `
+Snake Game 🐍
+Score: ${snakeGame.score}
+
+${board}
+
+Use:
+  w = up
+  s = down
+  a = left
+  d = right
+
+Type clear to exit.
+      `,
+      "success"
+    );
+  }
+
+  function startSnakeGame() {
+    snakeGame = {
+      size: 8,
+      snake: [{ x: 3, y: 3 }],
+      direction: "right",
+      food: { x: 6, y: 3 },
+      score: 0
+    };
+
+    printTerminalBlock(
+      `
+Mini Snake started 🐍
+Move using w / a / s / d then press Enter.
+      `,
+      "success"
+    );
+
+    renderSnakeGame();
+  }
+
+  function moveSnake(directionCommand) {
+    if (!snakeGame) return false;
+
+    const directionMap = {
+      w: "up",
+      s: "down",
+      a: "left",
+      d: "right"
+    };
+
+    const direction = directionMap[directionCommand];
+
+    if (!direction) return false;
+
+    snakeGame.direction = direction;
+
+    const head = { ...snakeGame.snake[0] };
+
+    if (direction === "up") head.y--;
+    if (direction === "down") head.y++;
+    if (direction === "left") head.x--;
+    if (direction === "right") head.x++;
+
+    if (
+      head.x < 0 ||
+      head.y < 0 ||
+      head.x >= snakeGame.size ||
+      head.y >= snakeGame.size ||
+      snakeGame.snake.some(part => part.x === head.x && part.y === head.y)
+    ) {
+      printTerminalBlock(
+        `
+Game Over 🐍💥
+Final Score: ${snakeGame.score}
+
+Type "snake" to play again.
+        `,
+        "error"
+      );
+
+      snakeGame = null;
+      return true;
+    }
+
+    snakeGame.snake.unshift(head);
+
+    if (head.x === snakeGame.food.x && head.y === snakeGame.food.y) {
+      snakeGame.score++;
+
+      snakeGame.food = {
+        x: Math.floor(Math.random() * snakeGame.size),
+        y: Math.floor(Math.random() * snakeGame.size)
+      };
+    } else {
+      snakeGame.snake.pop();
+    }
+
+    renderSnakeGame();
+    return true;
+  }
+
   function runTerminalCommand(commandText) {
     if (!terminalOutput) return;
 
@@ -283,8 +477,34 @@ You are viewing Abdullah Muhammad's interactive developer portfolio.
 
     printTerminalLine(`guest@abdullah:~$ ${command}`, "command");
 
+    if (snakeGame && ["w", "a", "s", "d"].includes(command)) {
+      moveSnake(command);
+      return;
+    }
+
+    if (command === "cat") {
+      printCat();
+      return;
+    }
+
+    if (command === "404") {
+      print404();
+      return;
+    }
+
+    if (command === "matrix") {
+      printMatrix();
+      return;
+    }
+
+    if (command === "snake") {
+      startSnakeGame();
+      return;
+    }
+
     if (command === "clear") {
       terminalOutput.innerHTML = "";
+      snakeGame = null;
 
       printTerminalBlock(
         `
@@ -297,7 +517,7 @@ Type "help" to see available commands.
       return;
     }
 
-    if (["github", "linkedin", "whatsapp", "qwetrum", "cv"].includes(command)) {
+    if (["github", "linkedin", "whatsapp", "qwetrum", "capstone", "repo", "cv"].includes(command)) {
       openPortfolioLink(command);
       return;
     }
@@ -330,7 +550,7 @@ Type "help" to see available commands.
 Welcome to Abdullah Muhammad's Portfolio Terminal 🚀
 
 Type "help" to see available commands.
-Try: about, skills, projects, certs, qwetrum, github, linkedin, cv
+Try: about, skills, projects, capstone, repo, cat, 404, matrix, snake
       `,
       "success"
     );
@@ -390,12 +610,16 @@ Abdullah's main skills include:<br>
 
     projects: `
 Main projects:<br>
+• Qwetrum Internship Capstone — Complete E-Commerce Website<br>
 • SmartFixOman — household service app with chat and bidding<br>
 • E-Scooter Rental System<br>
 • Food Ordering System<br>
 • WeatherApp<br>
 • MeditationApp<br>
-• FlowerShop
+• FlowerShop<br><br>
+<a href="https://gmac1231.github.io/Capstone-Complete-E-Commerce-Website/" target="_blank">
+View Internship Project
+</a>
 `,
 
     smartfixoman: `
@@ -412,7 +636,11 @@ You can view the certificates from the Certifications section.
 `,
 
     qwetrum: `
-Abdullah is a Remote Intern at Qwetrum Technologies.<br>
+Abdullah completed the Web Development Internship at Qwetrum Technologies.<br><br>
+Final internship project:<br>
+<a href="https://gmac1231.github.io/Capstone-Complete-E-Commerce-Website/" target="_blank">
+Complete E-Commerce Website
+</a><br><br>
 Website: https://www.qwetrumtechnologies.tech/
 `,
 
@@ -458,6 +686,7 @@ This assistant is a portfolio AI helper. It can answer visitor questions about A
     if (message.includes("smartfix") || message.includes("smart fix")) return aiAnswers.smartfixoman;
     if (message.includes("certificate") || message.includes("cert")) return aiAnswers.certificates;
     if (message.includes("qwetrum") || message.includes("intern")) return aiAnswers.qwetrum;
+    if (message.includes("capstone") || message.includes("ecommerce") || message.includes("e-commerce")) return aiAnswers.projects;
     if (message.includes("contact") || message.includes("email") || message.includes("whatsapp")) return aiAnswers.contact;
     if (message.includes("github")) return aiAnswers.github;
     if (message.includes("cv") || message.includes("resume")) return aiAnswers.cv;

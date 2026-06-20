@@ -1674,3 +1674,22 @@ h3 {
     width: 100%;
   }
 }
+
+/* =========================
+   PROJECT ACTION BUTTONS
+========================= */
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.project-actions .cert-btn {
+  margin-top: 0;
+}
+
+.terminal-line.success {
+  color: #86efac;
+}
