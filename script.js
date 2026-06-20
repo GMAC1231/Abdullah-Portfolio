@@ -1,5 +1,5 @@
 /* =========================================================
-   ABDULLAH MUHAMMAD PORTFOLIO — FIXED FULL SCRIPT.JS
+   ABDULLAH MUHAMMAD PORTFOLIO — FULL UPGRADED SCRIPT.JS
    Navbar + Reveal Animation + PDF Popup + Git Bash Terminal + AI Assistant
 ========================================================= */
 
@@ -178,18 +178,37 @@ Available commands:
   projects   Show portfolio projects
   certs      Show IBM certificates
   contact    Show contact details
+
+Links:
   qwetrum    Open Qwetrum Technologies website
   github     Open GitHub profile
   linkedin   Open LinkedIn profile
   whatsapp   Open WhatsApp chat
   cv         Open CV PDF
-  capstone   Open Qwetrum internship capstone project
+  capstone   Open internship capstone project
   repo       Open capstone GitHub repository
-  cat        Summon a terminal cat
-  404        Show a fun fake 404 error
-  matrix     Start matrix-style terminal effect
-  snake      Start mini snake text game
+
+Fun:
+  banner     Show Abdullah ASCII banner
+  hacker     Start hacker mode
+  system     Show portfolio system info
+  launch     Launch portfolio rocket
+  coffee     Generate developer coffee
+  roast      Random developer roast
+  magic      Portfolio magic effect
+  loading    Load awesomeness bar
+  quote      Show developer quote
+  music      Play fake coding music
+  weather    Developer weather report
+  games      Show mini games menu
+  secret     Find secret file
+  cat        Summon terminal cat
+  404        Show fake 404 error
+  matrix     Start matrix effect
+  snake      Start mini snake game
   w/a/s/d    Move snake after starting the game
+
+Utility:
   date       Show current date and time
   whoami     Show visitor identity
   clear      Clear terminal
@@ -287,16 +306,18 @@ You are viewing Abdullah Muhammad's interactive developer portfolio.
     window.open(url, "_blank", "noopener,noreferrer");
   }
 
-  let snakeGame = null;
+  /* =========================
+     FUN TERMINAL COMMANDS
+  ========================= */
 
   function printCat() {
     printTerminalBlock(
       `
- /\_/\\
+ /\\_/\\
 ( o.o )
  > ^ <
-Terminal cat summoned successfully 🐱
 
+Terminal cat summoned successfully 🐱
 Meow! Abdullah's portfolio is now 37% more awesome.
       `,
       "success"
@@ -344,6 +365,290 @@ Snake game available ✅
       }
     }, 160);
   }
+
+  function printBanner() {
+    printTerminalBlock(
+      `
+ █████╗ ██████╗ ██████╗ ██╗   ██╗██╗     ██╗      █████╗ ██╗  ██╗
+██╔══██╗██╔══██╗██╔══██╗██║   ██║██║     ██║     ██╔══██╗██║  ██║
+███████║██████╔╝██║  ██║██║   ██║██║     ██║     ███████║███████║
+██╔══██║██╔══██╗██║  ██║██║   ██║██║     ██║     ██╔══██║██╔══██║
+██║  ██║██████╔╝██████╔╝╚██████╔╝███████╗███████╗██║  ██║██║  ██║
+╚═╝  ╚═╝╚═════╝ ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝
+
+Portfolio Terminal v2.0
+Status: ONLINE ✅
+Developer Mode: ENABLED 🚀
+      `,
+      "success"
+    );
+  }
+
+  function printHackerMode() {
+    const steps = [
+      "Initializing developer environment...",
+      "Scanning portfolio files...",
+      "Checking projects...",
+      "SmartFixOman detected ✅",
+      "Qwetrum Internship detected ✅",
+      "Capstone E-Commerce Website detected ✅",
+      "GitHub repositories detected ✅",
+      "AI Assistant detected ✅",
+      "Final security check...",
+      "ACCESS GRANTED 😎"
+    ];
+
+    let index = 0;
+
+    const interval = setInterval(() => {
+      printTerminalLine(`[SYSTEM] ${steps[index]}`, "success");
+      index++;
+
+      if (index >= steps.length) {
+        clearInterval(interval);
+        printTerminalBlock(
+          `
+Welcome back, developer.
+
+Type:
+  projects
+  skills
+  launch
+  roast
+  system
+  coffee
+          `,
+          "success"
+        );
+      }
+    }, 250);
+  }
+
+  function printSystemInfo() {
+    printTerminalBlock(
+      `
+System Information
+------------------
+Portfolio Owner : Abdullah Muhammad
+Role            : Software & Mobile Application Developer
+Location        : Oman
+Main Stack      : Flutter, Firebase, Flask, React.js, JavaScript
+Internship      : Qwetrum Technologies
+Main Project    : Complete E-Commerce Website
+GitHub          : GMAC1231
+System Status   : Portfolio running perfectly ✅
+      `,
+      "success"
+    );
+  }
+
+  function printLaunch() {
+    printTerminalBlock(
+      `
+Launching Abdullah Portfolio Rocket...
+
+        /\\
+       /  \\
+      /++++\\
+     /  ()  \\
+     |      |
+     | ABD  |
+     | DEV  |
+     |______|
+       /\\
+      /  \\
+     /____\\
+
+3...
+2...
+1...
+
+🚀 Portfolio launched successfully!
+      `,
+      "success"
+    );
+  }
+
+  function printCoffee() {
+    printTerminalBlock(
+      `
+      )  (
+     (   ) )
+      ) ( (
+    _______)_
+ .-'---------|  
+( C|/\\/\\/\\/\\/|
+ '-./\\/\\/\\/\\/|
+   '_________'
+    '-------'
+
+Coffee generated for developer ☕
+Energy level: 100%
+Bug fixing power: ACTIVATED
+      `,
+      "success"
+    );
+  }
+
+  function printRoast() {
+    const roasts = [
+      "Your code is so clean even VS Code smiled.",
+      "Bug detected: portfolio too awesome for normal visitors.",
+      "Warning: Abdullah's projects may cause recruiters to click Contact.",
+      "CSS level: premium. HTML level: solid. JavaScript level: dangerous.",
+      "This terminal has more personality than most websites."
+    ];
+
+    const randomRoast = roasts[Math.floor(Math.random() * roasts.length)];
+
+    printTerminalBlock(
+      `
+Developer Roast Generator 🔥
+
+${randomRoast}
+      `,
+      "success"
+    );
+  }
+
+  function printMagic() {
+    printTerminalBlock(
+      `
+Performing portfolio magic...
+
+        ✨  *  .  ✨
+     *     ABRACADABRA     *
+        ✨  .  *  ✨
+
+Result:
+  Navbar polished ✅
+  Hero upgraded ✅
+  Projects highlighted ✅
+  Git Bash terminal enhanced ✅
+  Recruiter attention increased ✅
+      `,
+      "success"
+    );
+  }
+
+  function printLoading() {
+    let progress = 0;
+
+    const interval = setInterval(() => {
+      progress += 10;
+
+      const filled = "█".repeat(progress / 10);
+      const empty = "░".repeat(10 - progress / 10);
+
+      printTerminalLine(`Loading awesomeness: [${filled}${empty}] ${progress}%`, "success");
+
+      if (progress >= 100) {
+        clearInterval(interval);
+        printTerminalBlock("Portfolio awesomeness loaded successfully ✅", "success");
+      }
+    }, 180);
+  }
+
+  function printQuote() {
+    const quotes = [
+      "Code is not just syntax, it is problem solving.",
+      "Every expert was once a beginner who kept debugging.",
+      "Build projects. Break things. Fix them. Repeat.",
+      "A strong portfolio speaks louder than a long resume.",
+      "Great developers do not quit; they inspect the console."
+    ];
+
+    const quote = quotes[Math.floor(Math.random() * quotes.length)];
+
+    printTerminalBlock(
+      `
+Developer Quote 💡
+
+"${quote}"
+      `,
+      "success"
+    );
+  }
+
+  function printMusic() {
+    printTerminalBlock(
+      `
+Now Playing 🎧
+
+Track: Coding at Midnight
+Artist: Abdullah Dev Mode
+Volume: ██████████ 100%
+
+♪ console.log("Keep building...") ♪
+♪ git commit -m "another awesome feature" ♪
+♪ npm run portfolio ♪
+      `,
+      "success"
+    );
+  }
+
+  function printWeather() {
+    printTerminalBlock(
+      `
+Developer Weather Report 🌦️
+
+Today inside the portfolio:
+  Bugs: 0%
+  Creativity: 100%
+  UI Glow: High
+  Recruiter Chance: Very High
+  Coffee Needed: Always
+
+Forecast:
+  More projects coming soon 🚀
+      `,
+      "success"
+    );
+  }
+
+  function printGameMenu() {
+    printTerminalBlock(
+      `
+Mini Games Available 🎮
+
+  snake      Play snake game
+  cat        Summon terminal cat
+  matrix     Matrix animation
+  roast      Random developer roast
+  magic      Portfolio magic
+  launch     Rocket launch
+
+More games coming soon...
+      `,
+      "success"
+    );
+  }
+
+  function printSecret() {
+    printTerminalBlock(
+      `
+Secret File Found 🔐
+
+/home/abdullah/success.txt
+
+Content:
+  Keep improving.
+  Keep building.
+  Keep uploading projects.
+  Your portfolio is your proof.
+
+Achievement Unlocked:
+  Terminal Explorer 🏆
+      `,
+      "success"
+    );
+  }
+
+  /* =========================
+     MINI SNAKE GAME
+  ========================= */
+
+  let snakeGame = null;
 
   function renderSnakeGame() {
     if (!snakeGame) return;
@@ -456,10 +761,15 @@ Type "snake" to play again.
     if (head.x === snakeGame.food.x && head.y === snakeGame.food.y) {
       snakeGame.score++;
 
-      snakeGame.food = {
-        x: Math.floor(Math.random() * snakeGame.size),
-        y: Math.floor(Math.random() * snakeGame.size)
-      };
+      let newFood;
+      do {
+        newFood = {
+          x: Math.floor(Math.random() * snakeGame.size),
+          y: Math.floor(Math.random() * snakeGame.size)
+        };
+      } while (snakeGame.snake.some(part => part.x === newFood.x && part.y === newFood.y));
+
+      snakeGame.food = newFood;
     } else {
       snakeGame.snake.pop();
     }
@@ -467,6 +777,10 @@ Type "snake" to play again.
     renderSnakeGame();
     return true;
   }
+
+  /* =========================
+     RUN TERMINAL COMMAND
+  ========================= */
 
   function runTerminalCommand(commandText) {
     if (!terminalOutput) return;
@@ -499,6 +813,71 @@ Type "snake" to play again.
 
     if (command === "snake") {
       startSnakeGame();
+      return;
+    }
+
+    if (command === "banner") {
+      printBanner();
+      return;
+    }
+
+    if (command === "hacker") {
+      printHackerMode();
+      return;
+    }
+
+    if (command === "system") {
+      printSystemInfo();
+      return;
+    }
+
+    if (command === "launch") {
+      printLaunch();
+      return;
+    }
+
+    if (command === "coffee") {
+      printCoffee();
+      return;
+    }
+
+    if (command === "roast") {
+      printRoast();
+      return;
+    }
+
+    if (command === "magic") {
+      printMagic();
+      return;
+    }
+
+    if (command === "loading") {
+      printLoading();
+      return;
+    }
+
+    if (command === "quote") {
+      printQuote();
+      return;
+    }
+
+    if (command === "music") {
+      printMusic();
+      return;
+    }
+
+    if (command === "weather") {
+      printWeather();
+      return;
+    }
+
+    if (command === "games") {
+      printGameMenu();
+      return;
+    }
+
+    if (command === "secret") {
+      printSecret();
       return;
     }
 
@@ -550,7 +929,7 @@ Type "help" to see available commands.
 Welcome to Abdullah Muhammad's Portfolio Terminal 🚀
 
 Type "help" to see available commands.
-Try: about, skills, projects, capstone, repo, cat, 404, matrix, snake
+Try: banner, hacker, system, projects, capstone, launch, coffee, roast, magic, snake
       `,
       "success"
     );
